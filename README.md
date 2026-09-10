@@ -4,7 +4,7 @@
 
 HootOut is a real-time messaging application.
 
-Send direct messages to friends or join a Server to chat with multiple people. Organize your conversations in channels and send messages to other Server members.
+Send direct messages to friends or join a Server to chat with multiple people. Organize your conversations in Channels and send messages to other Server members.
 
 
 **This is a work in progress. In this Phase 1, only functional and technical goals are defined. Implementation has not yet begun.**
@@ -20,7 +20,7 @@ The goals of this project are that users can send messages to other users. They 
 - Add other users as friends so you can send direct messages to them.
 - Send emojis, gifs, images, videos, audio and files.
 - Create or join a server and chat with multiple people at the same time.
-- Organize server conversations by having different channels.
+- Organize server conversations by having different Channels.
 - Manage the server permissions by creating and assigning roles to members.
 - Add third party applications to your servers to extend the functionality.
 
@@ -85,8 +85,8 @@ gantt
 - Users can create a group chat, called "Server. The Server will have a server name, a short description and a Server picture.
 - The creator of the Server will be able to edit name, description and picture. They will be able to delete the Server.
 - Users that join a Server, will be able to add users to a Server.
-- Users inside a Server will be able to create, edit and delete channels inside a Server. A channel will only have a name.
-- Users will be able to send messages inside a channel of a Server they are part of.
+- Users inside a Server will be able to create, edit and delete Channels inside a Server. A Channel will only have a name.
+- Users will be able to send messages inside a Channel of a Server they are part of.
 - All messages will have the username, the profile picture, the local time when the message was stored on the server and the message content.
 - Messages can include text, pictures, GIFs, videos, audio files, and documents. The user will be able to download them.
 - Messages composed of text, pictures, GIFs, videos or audio will be displayed on the applications. 
@@ -131,7 +131,7 @@ Project tracking and task management will be done with a GitHub Project. A Kanba
 
 This application is being developed as part of the double Bachelor's Degree for Computer Science and Software Engineering at the "Escuela Técnica Superior de Ingeniería Informática (ETSII) de la Universidad Rey Juan Carlos (URJC)"
 
-This first version will be part of the Computer Science Degree Final Project. A future version will be developed for the Software Engineering Degree Final Project.
+This first version will be part of the Software Engineering Degree Final Project. A future version will be developed for the Computer Science Degree Final Project.
 
 The author of this project is Iván Motos Montalbán, under the academic supervision of Michel Maes Bermejo, the Tutor of the Bachelor's Degree Thesis.
 
