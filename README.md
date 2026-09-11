@@ -31,6 +31,7 @@ The main technical challenge is the real time nature of the application. Serving
 - Frontend SPA in Vue.js.
 - Backend REST API and Websockets with ASP.NET Core.
 - Message broker with RabbitMQ to handle real time traffic and horizontal scaling.
+- PostgreSQL as the main database, and Elasticsearch for message queries.
 - Automated backend and frontend testing, and code analysis with Sonar.
 - GitHub Flow for git versioning and GitHub Projects with a Kanvan board for project management.
 - Workflow automations with CI through GitHub Actions.
@@ -119,9 +120,52 @@ gantt
 
 ## Analysis:
 
-### Screens and navigation
+### Screens and navigation:
 
-### Entities
+### Entities:
+
+### User Permissions:
+For Create, Read, Update and Delete actions that a user can perform, we will use the C.R.U.D. acronym.
+
+What a user can do will depend on what permissions have on each server.
+
+#### Unregistered user:
+Unregistered users won't be able to access the application, they can login or register.
+  - Access to public facing pages (Landing page, Login, Register)
+  - Create a user account
+  
+#### Registered User:
+- RUD a user account
+- Send friend requests, accept friend requests and see their friend list.
+- CRUD messages on direct messages.
+- CRUD a Server
+- CRUD Channels in a Server
+- CRUD messages in a Server
+- Invite and kick members from a Server. See the members of a Server.
+- CRUD Roles and permissions in a Server
+
+### Images:
+
+Users will be able to upload a profile picture when creating an Account. They update their profile picture at any time.
+
+Users will be able to upload a Server picture that will act as a profile picture for the Server.
+
+Users can upload images as part of a message.
+
+Users can upload images to a Server as emojis and stickers.
+
+### Complementary Technologies:
+
+For real time communication, we will use Websockets to keep an open connection between client and server.
+
+For managing backend services communication, as well as infrastructure scalability, we will use a message broker. In this case we will use RabbitMQ
+
+We will use MinIO as a High Performance Object Storage to store user uploaded files. Its API is compatible with Amazon S3
+
+Elasticsearch for message querying.
+
+### Advanced Query:
+User messages querying and filtering will be done with Elasticsearch. Users can search old messages by the content of the message, both in direct messages and in Server Channels. Those results will be paginated.
 
 ## Project tracking:
 
