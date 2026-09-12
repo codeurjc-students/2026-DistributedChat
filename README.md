@@ -95,7 +95,8 @@ gantt
 - Messages sent on a Channel will be sent to all the Server members with status connected.
 - When a disconnected user connects, it will receive the last messages of a Server. After that, the user will be able to fetch older messages in a paginated way.
 
-### Intermediate Functionality: 
+### Intermediate Functionality:
+
 - Users will be able to upload custom Emojis and Stickers to a Server.
 - Introduction of Rol and permissions on Servers.
 - Users will be able to create Roles in a Server. A role will have a name and a list of permissions.
@@ -109,6 +110,7 @@ gantt
 - A User can have multiple roles in a Server.
 
 ### Advanced Functionality: 
+
 - Integration with "Bots" and Third-Party Applications.
 - Authorization and Authentication of Bots will be made via tokens.
 - A Bot will be able to join a Server as a member and will have the rol "Bot".
@@ -124,17 +126,110 @@ gantt
 
 ### Entities:
 
+The aim of this section is to identify the primary entities that will be used on the application, their attributes and their relations.
+Here is a short description of the main entities:
+- User: Registered user of the platform, with unique username and email.
+- Server: Group chat that has channels.
+- Channel: Where users send messages inside a Server. Belongs to a Server.
+- DirectMessage: Direct message between two users. The message is stored on the Message table.
+- ChannelMessage: Message sent in a Channel. The message is stored on the Message table.
+- Message: The text content of the message. Messages attachments will be on its own table.
+- MessageAttachment: File attatchment on a message.
+- MediaFile: The information of a file uploaded to the platform. It stores information on how to retreive it, not the file itself. User profile pictures, server profile pictures, emojis, stickers and message attachments are stored in this table. It also stores the uploader/owner of this file.
+- ServerMember: Each entry represents that a user is member of a Server. A user can be in many Servers, but only once in the same Server.
+- UserRelation: Used to represent if two users are friends. The status is if a friend request is pending, accepted or rejected.
+- ServerRol: Rol created on a Server.
+- UserRol: Rol assigned to a User on a Server.
+- RolPermission: Each entry is a permission assigned to a Rol. 
+- Permission: The list of permissions that can be assigned to a Rol. These are the same for the whole application and cannot be changed by users.
+- ServerEmoji: Emojis uploaded to a Server.
+- StickerEmoji: Stickers uploaded to a Server.
+
+#### Entity attributes:
+
+##### User: 
+
+| Id | UserName | Email | Password | ProfilePictureId | Deleted | CreatedAt | ModifiedAt |
+|----|----------|-------|----------|------------------|---------|-----------|------------|
+
+##### Server: 
+
+| Id | Name | Description | ProfilePictureId | OwnerId | Deleted | CreatedAt | ModifiedAt |
+|----|------|-------------|------------------|---------|---------|-----------|------------|
+
+##### Channel:
+| Id | Name | ServerId | Deleted | CreatedAt | ModifiedAt |
+|----|------|----------|---------|-----------|------------|
+
+##### DirectMessage: 
+| Id | SenderId | ReceiverId | MessageId | CreatedAt |
+|----|----------|------------|-----------|-----------|
+
+##### ChannelMessage: 
+| Id | SenderId | ChannelId | MessageId | CreatedAt |
+|----|----------|------------|-----------|-----------|
+
+##### Message: 
+| Id | Content | Deleted | CreatedAt | ModifiedAt |
+|----|---------|---------|-----------|------------|
+
+##### MessageAttachment:
+| Id | MessageId | MediaFileId | MediaType | CreatedAt |
+|----|-----------|-------------|-----------|-----------|
+
+##### MediaFile:
+| Id | FileName | FileSize | Md5 | FileLocation | OwnerId | CreatedAt | ModifiedAt |
+|----|----------|----------|-----|--------------|---------|-----------|------------|
+
+##### ServerMember:
+| Id | UserId | ServerId | Deleted | CreatedAt | ModifiedAt |
+|----|--------|----------|---------|-----------|------------|
+
+##### UserRelation:
+| Id | User1Id | User2Id | StatusId | CreatedAt | ModifiedAt |
+|----|---------|---------|----------|-----------|------------|
+
+##### ServerRol:
+| Id | ServerId | Name | CreatedAt | ModifiedAt |
+|----|----------|------|-----------|------------|
+
+##### UserRol:
+| Id | UserId | RolId | CreatedAt | ModifiedAt |
+|----|--------|-------|-----------|------------|
+
+##### RolPermission:
+| Id | ServerRolId | PermissionId | ModifiedAt |
+|----|-------------|--------------|------------|
+
+##### Permission:
+| Id | Name | Value | CreatedAt | ModifiedAt |
+|----|------|-------|-----------|------------|
+
+##### ServerEmoji:
+| Id | Name | ServerId | MediaFileId | CreatedAt | ModifiedAt |
+|----|------|----------|-------------|-----------|------------|
+
+##### ServerSticker:
+| Id | Name | ServerId | MediaFileId | CreatedAt | ModifiedAt |
+|----|------|----------|-------------|-----------|------------|
+
+#### Entity Relations:
+
+
 ### User Permissions:
+
 For Create, Read, Update and Delete actions that a user can perform, we will use the C.R.U.D. acronym.
 
 What a user can do will depend on what permissions have on each server.
 
 #### Unregistered user:
+
 Unregistered users won't be able to access the application, they can login or register.
   - Access to public facing pages (Landing page, Login, Register)
   - Create a user account
   
 #### Registered User:
+
 - RUD a user account
 - Send friend requests, accept friend requests and see their friend list.
 - CRUD messages on direct messages.
@@ -165,7 +260,8 @@ We will use MinIO as a High Performance Object Storage to store user uploaded fi
 Elasticsearch for message querying.
 
 ### Advanced Query:
-User messages querying and filtering will be done with Elasticsearch. Users can search old messages by the content of the message, both in direct messages and in Server Channels. Those results will be paginated.
+
+Users messages querying and filtering will be done with Elasticsearch. Users can search old messages by the content of the message, both in direct messages and in Server Channels. Those results will be paginated.
 
 ## Project tracking:
 
