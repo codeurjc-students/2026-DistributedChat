@@ -124,12 +124,95 @@ gantt
 
 ### Screens and navigation:
 
+#### Landing Page:
+
+Home page of the application. From here users can Login or Register.
+![Landing Page](<docs/images/Landing Page.png>)
+
+#### Login:
+
+![Login Page](<docs/images/Login Page.png>)
+
+#### Register:
+
+![Register Page](<docs/images/Register Page.png>)
+
+#### Direct Message:
+After Login or Registration, they get to the Direct Messages page. 
+Here users can chat with the users on their Friend List, by selecting them on their friend list.
+![Direct Message List](<docs/images/Direct Messages List.png>)
+Before selecting any friend to chat.
+
+![Direct Message Chat](<docs/images/Direct Messages Chat.png>)
+Direct Message with a friend.
+
+#### Friend Requests:
+Users can send friend requests and see their friend requests by clicking on the icons to the right of "Friends: "
+
+![Send Friend Request](<docs/images/Send Friend Request.png>)
+Send Friend Request.
+
+![Accept Friend Request](<docs/images/Accept Friend Request.png>)
+Accept Friend Requests.
+
+#### User Profile:
+By clicking on their username and profile picture at the top right, users can go to their profile. There they can update their profile picture or delete their account.
+
+![View Profile](<docs/images/View profile.png>)
+Clicking their username or profile picture. They can also Log out.
+
+![User Profile](<docs/images/User Profile.png>)
+User profile.
+
+#### Servers:
+At the left, there will be the Server list. The profile picture of the Server will be shwon there. At the bottom there will be a button to create a new Server.
+
+![Create Server](<docs/images/Create Server.png>)
+Create Server.
+
+![Server messages Chat](<docs/images/Server Messages Chat.png>)
+Server messages chat. A list of Channels will be at the left, with a button to create a new Channel.
+
+![Add Channel](<docs/images/Add Channel.png>)
+
+#### Server Configuration:
+Clicking on the Server Settings icon, will open the Server configuration. Here users can change the Server profile picture, the Server name, the description and manage Roles, Server Members, Emojis and Stickers.
+
+##### Server Settings:
+![Server Settings](<docs/images/Server settings.png>)
+Server settings.
+
+##### Server Roles: 
+
+![Server Roles](<docs/images/Server Roles.png>)
+List of roles on a Server.
+
+![Server Edit Rol](<docs/images/Server Edit Rol.png>)
+Edit Rol properties.
+
+![Server Edit Rol Permissions](<docs/images/Server Edit Rol-1.png>)
+Edit Rol Permissions.
+
+![Server Edit Rol Members](<docs/images/Rol Members.png>)
+Edit Rol Members.
+
+![Server Edit Rol Add Members](<docs/images/Rol Add Members.png>)
+Add Member to Rol.
+
+##### Server Members:
+
+![Server Members](<docs/images/Server Members.png>)
+List of Server Members
+
+![Server Add Member](<docs/images/Add Server member.png>)
+Similar to Add Friend, close to the Server Configuration icon there is an icon to add Users to a Server.
+
 ### Entities:
 
 The aim of this section is to identify the primary entities that will be used on the application, their attributes and their relations.
 Here is a short description of the main entities:
 - User: Registered user of the platform, with unique username and email.
-- Server: Group chat that has channels.
+- Server: Group chat that has Channels.
 - Channel: Where users send messages inside a Server. Belongs to a Server.
 - DirectMessage: Direct message between two users. The message is stored on the Message table.
 - ChannelMessage: Message sent in a Channel. The message is stored on the Message table.
