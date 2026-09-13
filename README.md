@@ -186,12 +186,12 @@ Here is a short description of the main entities:
 |----|--------|----------|---------|-----------|------------|
 
 ##### UserRelation:
-| Id | User1Id | User2Id | StatusId | CreatedAt | ModifiedAt |
+| Id | User1Id | User2Id | Status | CreatedAt | ModifiedAt |
 |----|---------|---------|----------|-----------|------------|
 
 ##### ServerRol:
-| Id | ServerId | Name | CreatedAt | ModifiedAt |
-|----|----------|------|-----------|------------|
+| Id | ServerId | Name | Deleted | CreatedAt | ModifiedAt |
+|----|----------|------|---------|-----------|------------|
 
 ##### UserRol:
 | Id | UserId | RolId | CreatedAt | ModifiedAt |
@@ -215,6 +215,170 @@ Here is a short description of the main entities:
 
 #### Entity Relations:
 
+```mermaid
+erDiagram
+
+  USER ||--o{ USER_RELATION: User1
+  USER ||--o{ USER_RELATION: User2
+
+  USER ||--o{ DIRECT_MESSAGE: Sends
+  USER ||--o{ DIRECT_MESSAGE: Receives
+
+  USER ||--|| MEDIA_FILE: ProfilePicture
+
+  SERVER ||--|{ CHANNEL: has
+  CHANNEL ||--o{ CHANNEL_MESSAGE: has_multiple
+  SERVER ||--|| MEDIA_FILE: ProfilePicture
+  SERVER ||--o{ SERVER_EMOJI: has
+  SERVER ||--o{ SERVER_STICKER: has
+  SERVER ||--|{ SERVER_MEMBER: has
+  USER }o--o{ SERVER_MEMBER: are
+  SERVER ||--|{ SERVER_ROL: has
+  SERVER_ROL ||--o{ PERMISSION: has
+
+  USER_ROL }o--|{ SERVER_ROL: isAssigned
+  USER_ROL ||--|| USER: user
+
+  CHANNEL_MESSAGE ||--|| MESSAGE: has
+  MESSAGE ||--o{ MESSAGE_ATTACHMENT: can_have
+  MESSAGE_ATTACHMENT ||--|| MEDIA_FILE: mediaFIle
+
+  USER {
+    int Id
+    string UserName
+    string Email
+    string Password
+    int ProfilePictureId
+    boolean Deleted
+    date CreatedAt
+    date ModifiedAt
+  }
+
+  SERVER {
+    int Id
+    string Name
+    string Description
+    int ProfilePictureId
+    int OwnerId
+    boolean Deleted
+    date CreatedAt
+    date ModifiedAt
+  }
+
+  CHANNEL {
+    int Id
+    string Name
+    int ServerId
+    boolean Deleted
+    date CreatedAt
+    date ModifiedAt
+  }
+
+  DIRECT_MESSAGE {
+    int Id
+    int SenderId
+    int ReceiverId
+    int MessageId
+    date CreatedAt
+  }
+
+  CHANNEL_MESSAGE {
+    int Id
+    int SenderId
+    int ChannelId
+    int MessageId
+    date CreatedAt
+  }
+
+  MESSAGE {
+    int Id
+    string Content
+    boolean Deleted
+    date CreatedAt
+    date ModifiedAt
+  }
+
+  MESSAGE_ATTACHMENT {
+    int Id
+    int MessageId
+    int MediaFileId
+    int MediaType
+    date CreatedAt
+  }
+
+  MEDIA_FILE {
+    int Id
+    string FileName
+    int FileSize
+    string Md5
+    string FileLocation
+    int OwnerId
+    date CreatedAt
+    date ModifiedAt
+  }
+
+  USER_RELATION {
+    int Id
+    int User1Id
+    int User2Id
+    int Status
+    date CreatedAt
+    date ModifiedAt
+  }
+
+  SERVER_EMOJI {
+    int Id 
+    string Name 
+    int ServerId 
+    int MediaFileId 
+    date CreatedAt 
+    date ModifiedAt 
+  }
+
+  SERVER_STICKER {
+    int Id 
+    string Name 
+    int ServerId 
+    int MediaFileId 
+    date CreatedAt 
+    date ModifiedAt 
+  }
+
+  SERVER_MEMBER {
+    int Id
+    int UserId
+    int ServerId
+    boolean Deleted
+    date CreatedAt
+    date ModifiedAt 
+  }
+
+  SERVER_ROL {
+    int Id
+    int ServerId
+    string Name
+    boolean Deleted
+    date CreatedAt
+    date ModifiedAt 
+  }
+
+  USER_ROL {
+    int Id
+    int UserId
+    int RolId
+    date CreatedAt
+    date ModifiedAt 
+  }
+
+  PERMISSION {
+    int Id
+    string Name
+    int Value
+    date CreatedAt
+    date ModifiedAt 
+  }
+
+```
 
 ### User Permissions:
 
