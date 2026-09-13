@@ -117,7 +117,7 @@ gantt
 - Bots can have additional roles like any other member.
 - Users will be able to send commands on a Server on the chat. Commands will start with "/". 
 - Third Party Applications will be able to register commands to a Server.
-- Public facing API for Bots, where it can 
+- Bots can use the API to interact with the Server they are part of.
 - Bots will be able to send and receive messages in real time. (Either through websockets or some type of Endpoint Callback).
 
 ## Analysis:
