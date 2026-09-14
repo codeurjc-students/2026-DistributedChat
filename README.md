@@ -1,5 +1,5 @@
 
-# HooutOut: A web application for Instant Messaging 
+# HootOut: A web application for Instant Messaging 
  
 
 HootOut is a real-time messaging application.
