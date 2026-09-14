@@ -12,7 +12,7 @@ Send direct messages to friends or join a Server to chat with multiple people. O
 
 ## Goals:
 
-Hooutout aims to be an instant messaging application where you can chat with direct messages, or join a server and chat with many people at the same time.
+HootOut aims to be an instant messaging application where you can chat with direct messages, or join a server and chat with many people at the same time.
 
 #### Functional Goals:
 
