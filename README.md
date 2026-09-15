@@ -108,6 +108,7 @@ gantt
 - When creating a Server, the User will have the role "Server Admin" with all the permissions.
 - When a user joins a Server, he will have a default Rol "member".
 - A User can have multiple roles in a Server.
+- Messages will be encripted at rest.
 
 ### Advanced Functionality: 
 
@@ -206,6 +207,22 @@ List of Server Members
 
 ![Server Add Member](<docs/images/Add Server member.png>)
 Similar to Add Friend, close to the Server Configuration icon there is an icon to add Users to a Server.
+
+#### Server Emojis:
+
+![Server Emojis](<docs/images/Server Emojis.png>)
+List of Server Emojis
+
+![Server Emojis Add or Edit](<docs/images/Server Emojis Add.png>)
+Add or Edit an existing Emoji
+
+#### Server Stickers:
+
+![Server Stickers](<docs/images/Server Stickers.png>)
+List of Server Stickers
+
+![Server Stickers Add or Edit](<docs/images/Server Stickers Add.png>)
+Add or Edit an existing Sticker
 
 ### Entities:
 
