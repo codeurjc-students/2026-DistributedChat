@@ -101,10 +101,10 @@ gantt
 - Introduction of Rol and permissions on Servers.
 - Users will be able to create Roles in a Server. A role will have a name and a list of permissions.
 - There will be a fixed set of permissions for Servers and Channels. Examples are:
-- Edit/delete a Server.
-- Create, edit and delete a Channel
-- Delete other User messages on the Server.
-- Invite/kick Users from a Server.
+  - Edit/delete a Server.
+  - Create, edit and delete a Channel
+  - Delete other User messages on the Server.
+  - Invite/kick Users from a Server.
 - When creating a Server, the User will have the role "Server Admin" with all the permissions.
 - When a user joins a Server, he will have a default Rol "member".
 - A User can have multiple roles in a Server.
@@ -116,10 +116,10 @@ gantt
 - Authorization and Authentication of Bots will be made via tokens.
 - A Bot will be able to join a Server as a member and will have the rol "Bot".
 - Bots can have additional roles like any other member.
-- Users will be able to send commands on a Server on the chat. Commands will start with "/". 
+- Users will be able to send commands on a Server on the chat. Commands will start with "/".
 - Third Party Applications will be able to register commands to a Server.
 - Bots can use the API to interact with the Server they are part of.
-- Bots will be able to send and receive messages in real time. (Either through websockets or some type of Endpoint Callback).
+- Bots will be able to send and receive messages in real time. (Either through websockets or some type of Endpoint Callback/Webhook).
 
 ## Analysis:
 
@@ -243,7 +243,7 @@ Here is a short description of the main entities:
 - RolPermission: Each entry is a permission assigned to a Rol. 
 - Permission: The list of permissions that can be assigned to a Rol. These are the same for the whole application and cannot be changed by users.
 - ServerEmoji: Emojis uploaded to a Server.
-- StickerEmoji: Stickers uploaded to a Server.
+- ServerSticker: Stickers uploaded to a Server.
 
 #### Entity attributes:
 
